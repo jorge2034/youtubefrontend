@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h2>Browser</h2>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="input-group mb-3">
+              <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Search" 
+              aria-label="Search"
+              [(ngModel)]="searchQuery" 
+              >
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="handleSearch()">Search</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-3" *ngFor="let item of results">
+            <div class="card">
+              <div class="card-body">
+                <img [src]="item?.thumbnail || ''" class="card-img-top" alt="...">
+                <h5 class="card-title">{{item?.name}}</h5>
+                <p class="card-text">{{item?.description}}</p>
+                <div class="d-grid col-12 mx-auto">
+                  <a 
+                    class="btn btn-fill"
+                    [routerLink]="[ item.isChannel ? '/channel' : '/video', item.id]"
+                    [ngClass]="{'btn-info': item.isChannel, 'btn-danger': !item.isChannel}"
+                  >
+                    {{ item.isChannel ? 'View Channel' : 'View Details'}}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

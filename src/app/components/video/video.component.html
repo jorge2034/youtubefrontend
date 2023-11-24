@@ -1,0 +1,46 @@
+<div class="card" *ngIf="data">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-8">
+        <h5 class="card-title">{{data.name}}</h5>
+      </div>
+      <div class="col-4">
+        <img [src]="data.thumbnail" class="img-thumbnail float-end card-img-top" alt="..." width="16">
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <iframe
+      width="100%"
+      height="500"
+      [src]="data.embedUrl"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Date</div>
+          {{ data.date }}
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Description</div>
+          {{ data.description }}
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Url</div>
+          <a
+            href="{{ data.url }}"
+            target="_blank"
+          >{{ data.url }}</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
